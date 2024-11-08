@@ -1,13 +1,13 @@
 // src/AppRoutes.jsx
 import React from 'react';
 // import { BrowserRouter as Routes, Route, Navigate } from 'react-router-dom';
-import Login from '../components/Login';
+import Login from '../components/users/auth/Login';
 import Dashboard from '../components/users/dashboard/Dashboard';
 import Profile from '../components/users/management/Profile';
 import NotFound from '../components/NotFound';
-import RegisterPage from '../components/Register';
+import RegisterPage from '../components/users/auth/Register';
 import { Route, Routes } from 'react-router-dom';
-import ChatBoard from '../components/ChatBoard';
+import ChatBoard from '../components/users/messaging/ChatBoard';
 
 
 const isAuthenticated = () => localStorage.getItem('accessToken') !== null;

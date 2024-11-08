@@ -1,8 +1,8 @@
 // src/pages/RegisterPage.jsx
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { signupUser } from '../store/actions/authActions';
 import { useDispatch } from 'react-redux';
+import { signupUser } from '../../../store/actions/authActions';
 
 const RegisterPage = () => {
   const dispatch = useDispatch(); // Get the dispatch function from the store

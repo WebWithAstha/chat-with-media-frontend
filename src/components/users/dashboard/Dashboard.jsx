@@ -1,19 +1,12 @@
 // src/pages/Dashboard.jsx
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser } from '../../../store/actions/authActions';
-import UserList from './users/UserList';
+import React from 'react';
+import UserList from '../management/UserList';
 import Logout from '../../logout/Logout';
+import useFetchUser from '../../../hooks/useFetchUser';
 
 const Dashboard = () => {
 
-  const {user} = useSelector(store=>store.authReducer)
-
-  const dispatch = useDispatch();
-
-  useEffect(()=>{
-    dispatch(fetchUser());
-  },[])
+  const user = useFetchUser();
 
   return (
     user &&

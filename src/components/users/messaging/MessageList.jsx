@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import MessageBubble from "./MessageBubble.jsx";
+import MessageBubble from "./MessageBubble";
 
 const MessageList = ({ messages }) => {
   const messageEndRef = useRef(null);
 
   useEffect(() => {
     // Scroll to the bottom whenever messages change
-    if (messageEndRef.current) {
-      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
@@ -16,7 +14,7 @@ const MessageList = ({ messages }) => {
       {messages.map((message, index) => (
         <MessageBubble key={index} message={message} />
       ))}
-      <div ref={messageEndRef} /> {/* Scroll target */}
+      <div ref={messageEndRef} /> 
     </div>
   );
 };

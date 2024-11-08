@@ -9,8 +9,7 @@ export const fetchChatWithUserAPI = (otherUserId) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
       if (accessToken) {
-        console.log("response");
-        const response = await axios.get(`/api/chats/${otherUserId}`, {
+        const response = await axios.get(`/api/messages/${otherUserId}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
