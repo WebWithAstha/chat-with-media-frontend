@@ -13,7 +13,7 @@ export const fetchChatWithUserAPI = (otherUserId) => {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
-        dispatch(setChatWithUser(response.data.chatMessages)); // Assuming the response contains 'chatMessages'
+        dispatch(setChatWithUser(response.data.chatMessages));
         dispatch(setLoading(false));
       }
     } catch (error) {

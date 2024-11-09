@@ -1,17 +1,47 @@
 import React, { useRef } from "react";
-
+// import { uploadFilesToFirebase } from "../../../firebase/firebaseUtils";  // Import the Firebase utility function
+// import { checkUserAuthentication } from "../../../firebase/firebaseUtils";  // Import the authentication check function
+import {isUserAuthenticatedForFirebase, uploadFilesToFirebase}  from '../../../utils/firebaseUtils'
+import { validateFiles } from '../../../utils/validateFiles'
 const FileUploader = ({ setSelectedFiles }) => {
   const fileInputRef = useRef(null);
 
-  const handleFileSelect = (event) => {
+  const handleFileSelect = async (event) => {
     const files = Array.from(event.target.files);
-    const updatedFiles = files.map((file) => ({
-      name: file.name,
-      url: URL.createObjectURL(file),
-      type: file.type.split("/")[0],
-    }));
+    console.log(files)
 
-    setSelectedFiles((prevFiles) => [...prevFiles, ...updatedFiles]);
+    // Check if the user is authenticated for Firebase upload
+    const isAuthenticated = await isUserAuthenticatedForFirebase();
+    if (!isAuthenticated) {
+      alert("You must be signed in to upload files.");
+      return;
+    }
+
+    // Validate files before uploading
+    const { validFiles, invalidFiles } = validateFiles(files);
+    if (invalidFiles.length > 0) {
+      invalidFiles.forEach((invalidFile) => {
+        alert(`File: ${invalidFile.file.name} - ${invalidFile.error}`);
+      });
+      return;
+    }
+
+    // Upload valid files to Firebase if authenticated
+    try {
+      const uploadURLs = await uploadFilesToFirebase(validFiles); // Upload the selected files
+      console.log(uploadURLs)
+      const updatedFiles = validFiles.map((file, index) => ({
+        name: file.name,
+        url: uploadURLs[index],  // Get the URL from Firebase
+        type: file.type.split("/")[0],
+      }));
+
+      // Update the selected files with the Firebase URLs
+      setSelectedFiles((prevFiles) => [...prevFiles, ...updatedFiles]);
+    } catch (error) {
+      console.error("Error uploading files:", error);
+      alert("Failed to upload files.");
+    }
   };
 
   return (

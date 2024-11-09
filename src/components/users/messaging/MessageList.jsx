@@ -4,6 +4,7 @@ import MessageBubble from "./MessageBubble";
 const MessageList = ({ messages }) => {
   const messageEndRef = useRef(null);
 
+
   useEffect(() => {
     // Scroll to the bottom whenever messages change
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });

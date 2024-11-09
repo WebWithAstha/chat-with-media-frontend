@@ -47,7 +47,7 @@ const MessageInput = ({ setMessages, messages, userId }) => {
   if (!user) return null; // Add a loading state if the user is not yet fetched
 
   return (
-    <div className="flex flex-col bg-zinc-700 rounded-b overflow-hidden items-center">
+    <div className="flex flex-col rounded-b overflow-hidden items-center">
       <FilePreview files={selectedFiles} onRemoveFile={setSelectedFiles} />
       <div className="flex w-full items-center">
         <FileUploader setSelectedFiles={setSelectedFiles} />
