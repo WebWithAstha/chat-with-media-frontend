@@ -1,8 +1,8 @@
 // src/pages/Dashboard.jsx
 import React from 'react';
-import UserList from '../management/UserList';
-import Logout from '../../logout/Logout';
-import useFetchUser from '../../../hooks/useFetchUser';
+import UserList from './UserList';
+import Logout from '../auth/Logout';
+import useFetchUser from '../../hooks/useFetchUser';
 
 const Dashboard = () => {
 

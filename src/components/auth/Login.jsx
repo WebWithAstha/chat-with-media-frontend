@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../../store/actions/authActions';
+import { loginUser } from '../../store/actions/authActions';
 
 const Login = () => {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserCard from "./UserCard";
-import { fetchUsers } from "../../../store/actions/usersActions";
+import { fetchUsers } from "../../store/actions/usersActions";
 import { Link } from "react-router-dom";
 
 const UserList = () => {

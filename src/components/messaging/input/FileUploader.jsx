@@ -1,6 +1,4 @@
 import React, { useRef } from "react";
-// import { uploadFilesToFirebase } from "../../../firebase/firebaseUtils";  // Import the Firebase utility function
-// import { checkUserAuthentication } from "../../../firebase/firebaseUtils";  // Import the authentication check function
 import {isUserAuthenticatedForFirebase, uploadFilesToFirebase}  from '../../../utils/firebaseUtils'
 import { validateFiles } from '../../../utils/validateFiles'
 const FileUploader = ({ setSelectedFiles }) => {
@@ -8,7 +6,7 @@ const FileUploader = ({ setSelectedFiles }) => {
 
   const handleFileSelect = async (event) => {
     const files = Array.from(event.target.files);
-    console.log(files)
+    // console.log(files)
 
     // Check if the user is authenticated for Firebase upload
     const isAuthenticated = await isUserAuthenticatedForFirebase();

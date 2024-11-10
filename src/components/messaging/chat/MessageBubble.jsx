@@ -1,5 +1,5 @@
 import React from "react";
-import MediaItem from "./MediaItem"; 
+import MediaItem from "../media/MediaItem"; 
 import useFetchUser from "../../../hooks/useFetchUser";
 
 const MessageBubble = ({ message }) => {

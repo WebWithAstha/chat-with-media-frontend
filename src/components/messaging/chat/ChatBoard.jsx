@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import MessageList from "./MessageList";
-import MessageInput from "./MessageInput";
+import MessageInput from "../input/MessageInput";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchChatWithUserAPI } from "../../../store/actions/chatActions";

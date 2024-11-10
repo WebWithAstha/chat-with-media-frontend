@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { socket } from "../../../services/socketService";
 import useFetchUser from "../../../hooks/useFetchUser";  // Import the custom hook
-import FilePreview from "./FilePreview";
+import FilePreview from "../media/FilePreview";
 import MessageInputField from "./MessageInputField";
 import FileUploader from "./FileUploader";
 
